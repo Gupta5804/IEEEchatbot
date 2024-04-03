@@ -17,11 +17,5 @@
 ![architecture_flow](https://github.com/Gupta5804/IEEEchatbot/blob/master/architecture_flow.jpg?raw=true)
 
 
-The chatbot works in several steps:
-
-Upload PDF: You upload the desired PDF file that you want to ask questions about.
-
-Text Extraction: The bot uses the PyPDF2 library to read the PDF file and extract text from it.
-
 
 ![flow_chart2](https://github.com/Gupta5804/IEEEchatbot/blob/master/flow_chart2.jpg?raw=true)
