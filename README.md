@@ -14,7 +14,7 @@
 
 
 ## Design Architecture
-![pdf_baba_architecture_flow](https://github.com/Tathagat017/Pdf-Baba/assets/114250830/9385b5a1-a485-4cd6-8bab-add4ec7981a9)
+![architecture_flow](https://github.com/Gupta5804/IEEEchatbot/blob/master/architecture_flow.jpg?raw=true)
 
 
 The chatbot works in several steps:
@@ -24,4 +24,4 @@ Upload PDF: You upload the desired PDF file that you want to ask questions about
 Text Extraction: The bot uses the PyPDF2 library to read the PDF file and extract text from it.
 
 
-![flow_chart2](https://github.com/Gupta5804/IEEEchatbot/flow_chart2.jpg)
+![flow_chart2](https://github.com/Gupta5804/IEEEchatbot/blob/master/flow_chart2.jpg?raw=true)
