@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FileUpload from "./../Components/FileUpload";
 import ChatInterface from "../Components/ChatInterface";
-import { SidebarFuction } from "../Layouts/SideBar";
+import { SidebarFuction } from "../Layouts/Sidebar";
 import { Box, Flex } from "@chakra-ui/react";
 
 const Chat = () => {

@@ -55,7 +55,7 @@ export default function Footer() {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Text>© 2023 Built by Tathagat. All rights reserved</Text>
+        <Text>© 2024 Built by Group-20(Bhojaram,Vikram,Sanjib,Rishabh). All rights reserved</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton label={"Twitter"} href={"#"}>
             <FaTwitter />

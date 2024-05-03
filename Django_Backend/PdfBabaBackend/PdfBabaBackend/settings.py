@@ -23,7 +23,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-f@3zmx^wwu+-e-0=!p5ayu*n*)&5&d+xp*4#zpla*%m6nqi4mw'
-
+os.environ["OPENAI_API_KEY"] = "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"
+#os.environ["OPENAI_API_KEY"] = "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"
+#os.environ["OPENAI_API_KEY"] = "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"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 

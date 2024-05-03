@@ -41,7 +41,7 @@ const FileUpload = ({ forcedRender, render }) => {
           filename: file.name,
           filetype: file.type,
           fileimage: reader.result,
-          datetime: file.lastModifiedDate.toLocaleString("en-IN"),
+          datetime: file.lastModifiedDate ? file.lastModifiedDate.toLocaleString("en-IN") : "Unknown",
           filesize: filesizes(file.size),
         });
         setFileData(newFileData);

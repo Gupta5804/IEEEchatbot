@@ -8,9 +8,9 @@ from django.core.exceptions import ObjectDoesNotExist
 import json
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from dotenv import load_dotenv
@@ -18,6 +18,7 @@ import os
 import glob
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+
 def get_pdf_paths():
     # Construct the path to the "media/pdfs/" directory
     pdfs_directory = os.path.join(settings.MEDIA_ROOT, 'pdfs')  # Use 'pdfs' as your directory name
@@ -75,45 +76,45 @@ class UserLoginView(View):
 #pdf upload
 
 @method_decorator(csrf_exempt, name='dispatch')
-# class PDFUploadView(View):
+class PDFUploadView(View):
 
-#     @method_decorator(csrf_exempt)
-#     def dispatch(self, *args, **kwargs):
-#         return super().dispatch(*args, **kwargs)
+    @method_decorator(csrf_exempt)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
-#     def post(self, request, *args, **kwargs):
-#         try:
-#             data = json.loads(request.body)
-#             username = data.get('username')
-#             token = data.get('token')
-#             file_data = data.get('file')  # Retrieve the JSON file data
-#         except json.JSONDecodeError:
-#             return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
+    def post(self, request, *args, **kwargs):
+        try:
+            data = json.loads(request.body)
+            username = data.get('username')
+            token = data.get('token')
+            file_data = data.get('file')  # Retrieve the JSON file data
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
 
-#         try:
-#             user = User.objects.get(username=username)
-#         except ObjectDoesNotExist:
-#             return JsonResponse({'error': 'User not found.'}, status=404)
+        try:
+            user = User.objects.get(username=username)
+        except ObjectDoesNotExist:
+            return JsonResponse({'error': 'User not found.'}, status=404)
 
-#         # Validate token using JWT
-#         try:
-#             decoded_token = jwt.decode(token, 'secret', algorithms=['HS256'])
-#             if decoded_token['username'] != username:
-#                 return JsonResponse({'error': 'Invalid token.'}, status=401)
-#         except jwt.ExpiredSignatureError:
-#             return JsonResponse({'error': 'Token has expired.'}, status=401)
-#         except jwt.DecodeError:
-#             return JsonResponse({'error': 'Invalid token.'}, status=401)
+        # Validate token using JWT
+        try:
+            decoded_token = jwt.decode(token, 'secret', algorithms=['HS256'])
+            if decoded_token['username'] != username:
+                return JsonResponse({'error': 'Invalid token.'}, status=401)
+        except jwt.ExpiredSignatureError:
+            return JsonResponse({'error': 'Token has expired.'}, status=401)
+        except jwt.DecodeError:
+            return JsonResponse({'error': 'Invalid token.'}, status=401)
 
-#         # Check if file_data is provided in the JSON request
-#         if not file_data:
-#             return JsonResponse({'error': 'File data is required.'}, status=400)
+        # Check if file_data is provided in the JSON request
+        if not file_data:
+            return JsonResponse({'error': 'File data is required.'}, status=400)
 
-#         # Process and save the file_data (assuming it's JSON data) to the user's pdf_file field
-#         user.pdf_file = json.dumps(file_data)
-#         user.save()
+        # Process and save the file_data (assuming it's JSON data) to the user's pdf_file field
+        user.pdf_file = json.dumps(file_data)
+        user.save()
 
-#         return JsonResponse({'message': 'JSON file uploaded successfully.'}, status=201)
+        return JsonResponse({'message': 'JSON file uploaded successfully.'}, status=201)
 def get_pdf_text(pdf_docs):
    
     text = ""

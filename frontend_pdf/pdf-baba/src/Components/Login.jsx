@@ -52,7 +52,7 @@ const Login = () => {
         "-webkitBackdropFilter": "blur( 4px )",
         borderRadius: "10px",
         border: " 1px solid rgba( 255, 255, 255, 0.18 )",
-        backgroundImage: "url(./KTe5.gif)",
+        backgroundImage: "url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmVldGh5bmwwY2R0empjOG9qcjhoMmcxNjQ3bTZjcmswd2gyZ3B5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BHNfhgU63qrks/giphy.gif)",
         backgroundRepeat: "no-repeat", // Prevent image from repeating
         backgroundSize: "100% 100%", // Cover the entire container
         backgroundPosition: "center",
@@ -68,7 +68,7 @@ const Login = () => {
           boxShadow={"lg"}
           p={8}
           style={{
-            background: "#8bc2f5",
+            background: "rgba(139, 245, 200, 0.7)",
             boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
             backdropFilter: "blur( 4px )",
             "-webkitBackdropFilter": "blur( 4px )",

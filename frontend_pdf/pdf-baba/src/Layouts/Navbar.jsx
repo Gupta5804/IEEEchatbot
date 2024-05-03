@@ -61,7 +61,7 @@ export default function Navbar() {
             <Image
               src="./baba2.jpg"
               alt="Dan Abramov"
-              w="22%"
+              w="5%"
               background={"#edf2f7"}
               borderRadius={"30px"}
             ></Image>
